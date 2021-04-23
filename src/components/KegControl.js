@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NewKegForm from "./NewKegForm";
 import KegList from "./KegList";
-// import KegDetail from './KegDetail';
+import KegDetails from './KegDetails';
 
 export default class TicketControl extends Component {
 
