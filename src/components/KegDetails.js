@@ -11,7 +11,7 @@ export default function KegDetails({
     <>
       <h1>Keg Details</h1>
       <h3>{keg.name} by {keg.brand}</h3>
-      <h3>${keg.price} per pint</h3>
+      <h3>${Number(keg.price).toFixed(2)} per pint</h3>
       <h3>Pints left in keg: {keg.quantity}</h3>
       <button onClick={() => onClickingDelete(keg.id)}>Remove Keg</button>
       <button onClick={() => onClickingEdit(keg.id)}>Edit Keg</button>

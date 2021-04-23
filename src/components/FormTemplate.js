@@ -8,19 +8,24 @@ export default function FormTemplate(props) {
         <input
           type='text'
           name='name'
-          placeholder='Name' />
+          placeholder='Name' 
+          required />
         <input
           type='text'
           name='brand'
-          placeholder='Brand' />
+          placeholder='Brand' 
+          required />
         <input
-          type='text'
+          type='number'
           name='price'
-          placeholder='Price' />
+          placeholder='Price' 
+          step="0.01"
+          required />
         <input
           type='text'
           name='flavor'
-          placeholder='Flavor' />
+          placeholder='Flavor' 
+          required />
         <button type='submit'>{props.buttonText}</button>
       </form>
     </>
