@@ -4,6 +4,7 @@ import FormTemplate from "./FormTemplate";
 import PropTypes from "prop-types";
 
 export default function NewKegForm(props) {
+
   function handleNewKegFormSubmission(event) {
     event.preventDefault();
     props.onNewKegCreation({ 
@@ -18,8 +19,8 @@ export default function NewKegForm(props) {
   return (
     <>
       <FormTemplate
-        formSubmissionHandler = { handleNewKegFormSubmission }
-        buttonText = "Add Keg" />
+        formSubmissionHandler={handleNewKegFormSubmission}
+        buttonText="Add Keg" />
     </>
   );
 }

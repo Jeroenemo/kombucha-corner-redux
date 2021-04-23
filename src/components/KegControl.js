@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NewKegForm from "./NewKegForm";
 import KegList from "./KegList";
+// import KegDetail from './KegDetail';
 
 export default class TicketControl extends Component {
 
@@ -18,8 +19,17 @@ export default class TicketControl extends Component {
     }));
   }
 
+  handleAddingNewKegToList = (newKeg) => {
+    const newKegList = this.state.kegList.concat(newKeg);
+    console.log(this.state.kegList)
+    this.setState({
+      kegList: newKegList,
+      formVisibleOnPage: false
+    });
+  }
+
   handleChangingSelectedKeg = (id) => {
-    const selectedKeg = this.state.ticketList.filter(keg => keg.id === id)[0];
+    const selectedKeg = this.state.kegList.filter(keg => keg.id === id)[0];
     this.setState({ selectedKeg: selectedKeg })
   }
 

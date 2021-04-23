@@ -1,30 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function FormTemplate({
-  formSumbissionHandler,
-  buttonText
-}){
+export default function FormTemplate(props) {
   return (
     <>
-      <form onSubmit = { formSumbissionHandler }>
+      <form onSubmit = {props.formSubmissionHandler}>
         <input
-          type = 'text'
-          name = 'name'
-          placeholder = 'Name' />
+          type='text'
+          name='name'
+          placeholder='Name' />
         <input
-          type = 'text'
-          name = 'brand'
-          placeholder = 'Brand' />
+          type='text'
+          name='brand'
+          placeholder='Brand' />
         <input
-          type = 'text'
-          name = 'price'
-          placeholder = 'Price' />
+          type='text'
+          name='price'
+          placeholder='Price' />
         <input
-          type = 'text'
-          name = 'flavor'
-          placeholder = 'Flavor' />
-        <button type = 'submit'>{ buttonText }</button>
+          type='text'
+          name='flavor'
+          placeholder='Flavor' />
+        <button type='submit'>{props.buttonText}</button>
       </form>
     </>
   );
