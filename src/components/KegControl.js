@@ -12,6 +12,12 @@ export default class TicketControl extends Component {
     };
   }
 
+  handleClick = () => {
+    this.setState(prevState => ({
+      formVisibleOnPage: !prevState.formVisibleOnPage
+    }));
+  }
+
   handleChangingSelectedKeg = (id) => {
     const selectedKeg = this.state.ticketList.filter(keg => keg.id === id)[0];
     this.setState({ selectedKeg: selectedKeg })
