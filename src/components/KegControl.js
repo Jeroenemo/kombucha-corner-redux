@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import NewKegForm from "./NewKegForm";
+import KegList from "./KegList";
 
 export default class TicketControl extends Component {
 
-  constuctor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       formVisibleOnPage: false,
@@ -18,7 +20,7 @@ export default class TicketControl extends Component {
       currentlyVisibleState = <NewKegForm
         onNewKegCreation = { this.handleAddingNewKegToList } />
     } else {
-      currentlyVisibleState = <kegList
+      currentlyVisibleState = <KegList
         kegList = { this.state.kegList }
         onKegSelection = { this.handleChangingSelectedKeg } />
     }
