@@ -10,6 +10,7 @@ export default class TicketControl extends Component {
     this.state = {
       formVisibleOnPage: false,
       selectedKeg: null,
+      editing: false,
       kegList: []
     };
   }
@@ -38,7 +39,9 @@ export default class TicketControl extends Component {
 
   handleChangingSelectedKeg = (id) => {
     const selectedKeg = this.state.kegList.filter(keg => keg.id === id)[0];
-    this.setState({selectedKeg: selectedKeg})
+    this.setState({
+      selectedKeg: selectedKeg
+    });
   }
 
   handleDeletingKeg = (id) => {
@@ -49,15 +52,25 @@ export default class TicketControl extends Component {
     });
   }
 
+  handleDecrementingKeg = (id) => {
+    const selectedKeg = this.state.kegList.filter(keg => keg.id === id)[0];
+    selectedKeg.quantity --;
+    this.setState({
+      selectedKeg: selectedKeg
+    });
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.selectedTicket != null) {
+    if (this.state.selectedKeg != null) {
       currentlyVisibleState = <KegDetails
         keg={this.state.selectedKeg}
         onClickingDelete={this.handleDeletingKeg}
-        onClickingEdit={this.handleEditingKeg} />
+        onClickingEdit={this.handleEditingKeg}
+        onClickingDecrement={this.handleDecrementingKeg} />
+      buttonText = "Return to Keg List";
 
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm
@@ -73,7 +86,7 @@ export default class TicketControl extends Component {
     return (
       <>
         { currentlyVisibleState }
-        <button onClick = { this.handleClick }>{ buttonText }</button>
+        <button onClick={this.handleClick}>{buttonText}</button>
       </>
     );
   }

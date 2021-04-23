@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 export default function KegDetails({
   keg,
   onClickingDelete,
-  onClickingEdit
+  onClickingEdit,
+  onClickingDecrement
 }){
   return (
     <>
@@ -14,6 +15,7 @@ export default function KegDetails({
       <h3>Pints left in keg: {keg.quantity}</h3>
       <button onClick={() => onClickingDelete(keg.id)}>Remove Keg</button>
       <button onClick={() => onClickingEdit(keg.id)}>Edit Keg</button>
+      <button onClick={() => onClickingDecrement(keg.id)}>Drink one</button>
     </>
   );
 }
