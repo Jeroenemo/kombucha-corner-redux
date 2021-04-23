@@ -9,14 +9,22 @@ export default class TicketControl extends Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
+      selectedKeg: null,
       kegList: []
     };
   }
 
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    if (this.state.selectedKeg != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedKeg: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage
+      }));
+    }
   }
 
   handleAddingNewKegToList = (newKeg) => {
@@ -30,21 +38,36 @@ export default class TicketControl extends Component {
 
   handleChangingSelectedKeg = (id) => {
     const selectedKeg = this.state.kegList.filter(keg => keg.id === id)[0];
-    this.setState({ selectedKeg: selectedKeg })
+    this.setState({selectedKeg: selectedKeg})
+  }
+
+  handleDeletingKeg = (id) => {
+    const newKegList = this.state.KegList.filter(keg => keg.id !== id);
+    this.setState({
+      kegList: newKegList,
+      selectedKeg: null
+    });
   }
 
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.formVisibleOnPage) {
+    if (this.state.selectedTicket != null) {
+      currentlyVisibleState = <KegDetails
+        keg={this.state.selectedKeg}
+        onClickingDelete={this.handleDeletingKeg}
+        onClickingEdit={this.handleEditingKeg} />
+
+    } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm
-        onNewKegCreation = { this.handleAddingNewKegToList } />
+        onNewKegCreation={this.handleAddingNewKegToList} />
       buttonText = "Return to Keg List";
+
     } else {
       currentlyVisibleState = <KegList
-        kegList = { this.state.kegList }
-        onKegSelection = { this.handleChangingSelectedKeg } />
+        kegList={this.state.kegList}
+        onKegSelection={this.handleChangingSelectedKeg} />
       buttonText = "Add Keg";
     }
     return (
