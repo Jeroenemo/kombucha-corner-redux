@@ -7,7 +7,8 @@ export default function KegList({
   brand, 
   price,
   flavor,
-  quantity
+  quantity,
+  id
 }){
   return (
     <>
@@ -19,7 +20,9 @@ export default function KegList({
           brand = { brand }
           price = { price }
           flavor = { flavor }
-          quantity = { quantity } />
+          quantity = { quantity }
+          id = { id }
+          key = { id } />
       )}
     </>
   );
