@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NewKegForm from "./NewKegForm";
 import KegList from "./KegList";
 import KegDetails from './KegDetails';
+import EditKegForm from "./EditKegForm";
 
 export default class TicketControl extends Component {
 
@@ -82,7 +83,13 @@ export default class TicketControl extends Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.selectedKeg != null) {
+    if (this.state.editing) {
+        currentlyVisibleState = <EditKegForm
+          keg={this.state.selectedKeg}
+          onEditKeg={this.handleEditingKegInList} />
+        buttonText = "Return to Keg List";
+
+    } else if (this.state.selectedKeg != null) {
       currentlyVisibleState = <KegDetails
         keg={this.state.selectedKeg}
         onClickingDelete={this.handleDeletingKeg}

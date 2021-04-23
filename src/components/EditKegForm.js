@@ -18,7 +18,7 @@ export default function EditKegForm (props) {
   }
   return (
     <>
-      <ReusableForm 
+      <FormTemplate
         formSubmissionHandler={handleEditKegFormSubmission}
         buttonText="Update Keg" />
     </>
