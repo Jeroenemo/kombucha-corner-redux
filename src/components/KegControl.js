@@ -12,6 +12,11 @@ export default class TicketControl extends Component {
     };
   }
 
+  handleChangingSelectedKeg = (id) => {
+    const selectedKeg = this.state.ticketList.filter(keg => keg.id === id)[0];
+    this.setState({ selectedKeg: selectedKeg })
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -19,10 +24,12 @@ export default class TicketControl extends Component {
     if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm
         onNewKegCreation = { this.handleAddingNewKegToList } />
+      buttonText = "Return to Keg List";
     } else {
       currentlyVisibleState = <KegList
         kegList = { this.state.kegList }
         onKegSelection = { this.handleChangingSelectedKeg } />
+      buttonText = "Add Keg";
     }
     return (
       <>

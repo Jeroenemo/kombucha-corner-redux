@@ -8,7 +8,9 @@ export default function KegList({
   price,
   flavor,
   quantity,
-  id
+  id,
+  kegList,
+  onKegSelection
 }){
   return (
     <>
@@ -28,7 +30,7 @@ export default function KegList({
   );
 }
 
-KegList.PropTypes = {
+KegList.propTypes = {
   kegList: PropTypes.array,
   onKegSelection: PropTypes.func
 };
