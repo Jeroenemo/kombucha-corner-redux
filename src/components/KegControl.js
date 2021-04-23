@@ -19,7 +19,8 @@ export default class TicketControl extends Component {
     if (this.state.selectedKeg != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedKeg: null
+        selectedKeg: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
@@ -45,7 +46,7 @@ export default class TicketControl extends Component {
   }
 
   handleDeletingKeg = (id) => {
-    const newKegList = this.state.KegList.filter(keg => keg.id !== id);
+    const newKegList = this.state.kegList.filter(keg => keg.id !== id);
     this.setState({
       kegList: newKegList,
       selectedKeg: null
@@ -54,9 +55,26 @@ export default class TicketControl extends Component {
 
   handleDecrementingKeg = (id) => {
     const selectedKeg = this.state.kegList.filter(keg => keg.id === id)[0];
-    selectedKeg.quantity --;
+    if (selectedKeg.quantity > 0) selectedKeg.quantity --;
     this.setState({
       selectedKeg: selectedKeg
+    });
+  }
+
+  handleEditingKeg = () => {
+    this.setState({
+      editing: true
+    });
+  }
+
+  handleEditingKegInList = (kegToEdit) => {
+    const editedKegList = this.state.kegList
+      .filter(keg => keg.id !== this.state.selectedKeg.id)
+      .concat(kegToEdit);
+    this.setState({
+      kegList: editedKegList,
+      editing: false,
+      selectedKeg: null
     });
   }
 
