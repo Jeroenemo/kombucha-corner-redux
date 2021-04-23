@@ -1,4 +1,6 @@
 import React from "react";
+import { ProgressBar } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PropTypes from "prop-types";
 
 export default function Keg({
@@ -14,12 +16,9 @@ export default function Keg({
     <>
       <div onClick = { () => whenKegClicked(id) }>
         <h3>{ name }</h3>
-        <ul>
-          <li>{ brand }</li>
-          <li>{ price }</li>
-          <li>{ flavor }</li>
-          <li>{ quantity }</li>
-        </ul>
+      </div>
+      <div className="progressBar">
+        <ProgressBar now={quantity} />
       </div>
     </>
   );
