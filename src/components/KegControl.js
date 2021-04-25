@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Button, Container, Jumbotron } from "react-bootstrap";
-import NewKegForm from "./NewKegForm";
-import KegList from "./KegList";
 import EditKegForm from "./EditKegForm";
+import KegList from "./KegList";
+import KegOverview from "./KegOverview";
+import NewKegForm from "./NewKegForm";
 
 export default class TicketControl extends Component {
 
@@ -32,7 +33,6 @@ export default class TicketControl extends Component {
 
   handleAddingNewKegToList = (newKeg) => {
     const newKegList = this.state.kegList.concat(newKeg);
-    console.log(this.state.kegList)
     this.setState({
       kegList: newKegList,
       formVisibleOnPage: false
@@ -106,6 +106,7 @@ export default class TicketControl extends Component {
     return (
       <>
         <Container>
+          <KegOverview kegList={this.state.kegList} />
           <Jumbotron>
             { currentlyVisibleState }
             <br />
