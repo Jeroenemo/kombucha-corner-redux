@@ -90,14 +90,6 @@ export default class TicketControl extends Component {
           onEditKeg={this.handleEditingKegInList} />
         buttonText = "Return to Keg List";
 
-    // } else if (this.state.selectedKeg != null) {
-    //   currentlyVisibleState = <KegDetails
-    //     keg={this.state.selectedKeg}
-    //     onClickingDelete={this.handleDeletingKeg}
-    //     onClickingEdit={this.handleEditingKeg}
-    //     onClickingDecrement={this.handleDecrementingKeg} />
-    //   buttonText = "Return to Keg List";
-
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm
         onNewKegCreation={this.handleAddingNewKegToList} />
