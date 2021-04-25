@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 export default function KegDetails({
@@ -13,9 +14,9 @@ export default function KegDetails({
       <h3>{keg.name} by {keg.brand}</h3>
       <h3>${Number(keg.price).toFixed(2)} per pint</h3>
       <h3>Pints left in keg: {keg.quantity}</h3>
-      <button onClick={() => onClickingDelete(keg.id)}>Remove Keg</button>
-      <button onClick={() => onClickingEdit(keg.id)}>Edit Keg</button>
-      <button onClick={() => onClickingDecrement(keg.id)}>Drink one</button>
+      <Button variant="success" onClick={() => onClickingDecrement(keg.id)}>Drink one</Button>{' '}
+      <Button variant="warning" onClick={() => onClickingEdit(keg.id)}>Edit Keg</Button>{' '}
+      <Button variant="danger" onClick={() => onClickingDelete(keg.id)}>Remove Keg</Button>{' '}
     </>
   );
 }
