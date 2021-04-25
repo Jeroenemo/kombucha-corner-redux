@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Button, Container, Jumbotron } from "react-bootstrap";
 import NewKegForm from "./NewKegForm";
 import KegList from "./KegList";
-import KegDetails from './KegDetails';
 import EditKegForm from "./EditKegForm";
 
 export default class TicketControl extends Component {
