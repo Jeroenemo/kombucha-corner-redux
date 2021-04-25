@@ -14,8 +14,9 @@ export default function Keg({
 }){
   return (
     <>
-      <div onClick = { () => whenKegClicked(id) }>
-        <h3>{ name }</h3>
+      <div style={{display: "flex"}}onClick = { () => whenKegClicked(id) }>
+        <h3>{name} -- </h3>
+        {quantity > 0 ? <h3>Active</h3> : <h3>Empty</h3>}
       </div>
     </>
   );

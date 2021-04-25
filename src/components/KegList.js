@@ -31,7 +31,7 @@ export default function KegList(props){
                   onClickingDelete={props.handleDeletingKeg}
                   onClickingEdit={props.handleEditingKeg}
                   onClickingDecrement={props.handleDecrementingKeg} />  
-              <ProgressBar now={keg.quantity * (100 / 124)} />
+              <ProgressBar style={{marginTop: "25px"}} now={keg.quantity * (100 / 124)} />
               </Card.Body>
             </Accordion.Collapse>
           </Card>
