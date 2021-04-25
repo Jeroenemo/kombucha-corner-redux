@@ -5,7 +5,9 @@ import KegControl from "./KegControl";
 export default function App() {
   return(
     <>
+      <br />
       <Header />
+      <br />
       <KegControl />
     </>
   );
