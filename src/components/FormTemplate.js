@@ -1,33 +1,45 @@
 import React from "react";
+import { Form, Row, Col, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 export default function FormTemplate(props) {
   return (
     <>
-      <form onSubmit = {props.formSubmissionHandler}>
-        <input
-          type='text'
-          name='name'
-          placeholder='Name' 
-          required />
-        <input
-          type='text'
-          name='brand'
-          placeholder='Brand' 
-          required />
-        <input
-          type='number'
-          name='price'
-          placeholder='Price' 
-          step="0.01"
-          required />
-        <input
-          type='text'
-          name='flavor'
-          placeholder='Flavor' 
-          required />
-        <button type='submit'>{props.buttonText}</button>
-      </form>
+      <Form onSubmit = {props.formSubmissionHandler}>
+        <Form.Group as={Row} controlId="name">
+          <Form.Label column sm={2}>
+            Name
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control type="text" placeholder="Name" required />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId="brand">
+          <Form.Label column sm={2}>
+            Brand
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control type="text" placeholder="Brand" required />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId="price">
+          <Form.Label column sm={2}>
+            Price
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control type="number" placeholder="Price" />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId="flavor">
+          <Form.Label column sm={2}>
+            Flavor
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control type="number" placeholder="Flavor" />
+          </Col>
+        </Form.Group>
+        <Button type='submit'>{props.buttonText}</Button>
+      </Form>
     </>
   );
 }

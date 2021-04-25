@@ -17,9 +17,6 @@ export default function Keg({
       <div onClick = { () => whenKegClicked(id) }>
         <h3>{ name }</h3>
       </div>
-      <div className="progressBar">
-        <ProgressBar now={quantity} />
-      </div>
     </>
   );
 }

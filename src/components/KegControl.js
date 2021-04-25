@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button, Container, Jumbotron } from "react-bootstrap";
 import NewKegForm from "./NewKegForm";
 import KegList from "./KegList";
 import KegDetails from './KegDetails';
@@ -89,13 +90,13 @@ export default class TicketControl extends Component {
           onEditKeg={this.handleEditingKegInList} />
         buttonText = "Return to Keg List";
 
-    } else if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetails
-        keg={this.state.selectedKeg}
-        onClickingDelete={this.handleDeletingKeg}
-        onClickingEdit={this.handleEditingKeg}
-        onClickingDecrement={this.handleDecrementingKeg} />
-      buttonText = "Return to Keg List";
+    // } else if (this.state.selectedKeg != null) {
+    //   currentlyVisibleState = <KegDetails
+    //     keg={this.state.selectedKeg}
+    //     onClickingDelete={this.handleDeletingKeg}
+    //     onClickingEdit={this.handleEditingKeg}
+    //     onClickingDecrement={this.handleDecrementingKeg} />
+    //   buttonText = "Return to Keg List";
 
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm
@@ -104,14 +105,22 @@ export default class TicketControl extends Component {
 
     } else {
       currentlyVisibleState = <KegList
+        handleEditingKeg={this.handleEditingKeg}
+        handleDecrementingKeg={this.handleDecrementingKeg}
+        handleDeletingKeg={this.handleDeletingKeg}
         kegList={this.state.kegList}
         onKegSelection={this.handleChangingSelectedKeg} />
       buttonText = "Add Keg";
     }
     return (
       <>
-        { currentlyVisibleState }
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <Container>
+          <Jumbotron>
+            { currentlyVisibleState }
+            <br />
+            <Button variant="primary" onClick={this.handleClick}>{buttonText}</Button>
+          </Jumbotron>
+        </Container>
       </>
     );
   }
