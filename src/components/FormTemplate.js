@@ -27,7 +27,7 @@ export default function FormTemplate(props) {
             Price
           </Form.Label>
           <Col sm={10}>
-            <Form.Control type="number" placeholder="Price" />
+            <Form.Control type="number" placeholder="Price" step="0.01" required />
           </Col>
         </Form.Group>
         <Form.Group as={Row} controlId="flavor">
@@ -35,7 +35,7 @@ export default function FormTemplate(props) {
             Flavor
           </Form.Label>
           <Col sm={10}>
-            <Form.Control type="number" placeholder="Flavor" />
+            <Form.Control type="text" placeholder="Flavor" required />
           </Col>
         </Form.Group>
         <Button type='submit'>{props.buttonText}</Button>
