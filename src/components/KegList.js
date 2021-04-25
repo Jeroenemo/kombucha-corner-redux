@@ -12,7 +12,7 @@ export default function KegList(props){
         <Accordion>
           <Card>
             <Card.Header>
-              <Accordion.Toggle as={Button} variant="link" eventKey="0">
+              <Accordion.Toggle as={Button} variant="text" eventKey="0">
                 <Keg
                   whenKegClicked = { props.onKegSelection }
                   name = { keg.name }
