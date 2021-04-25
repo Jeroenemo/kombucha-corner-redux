@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, ProgressBar } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 export default function KegDetails({
@@ -8,6 +8,12 @@ export default function KegDetails({
   onClickingEdit,
   onClickingDecrement
 }){
+
+  
+  const color = keg.quantity > 62 ? "success" 
+              : keg.quantity > 31 ? "warning"
+              : "danger";
+
   return (
     <>
       <h1><u>Keg Details</u></h1>
@@ -17,8 +23,13 @@ export default function KegDetails({
       <Button variant="success" onClick={() => onClickingDecrement(keg.id)}>Drink one</Button>{' '}
       <Button variant="warning" onClick={() => onClickingEdit(keg.id)}>Edit Keg</Button>{' '}
       <Button variant="danger" onClick={() => onClickingDelete(keg.id)}>Remove Keg</Button>{' '}
+      <ProgressBar
+        style={{marginTop: "25px"}} 
+        striped variant={color} 
+        now={keg.quantity * (100 / 124)} />
     </>
   );
+
 }
 
 KegDetails.propTypes = {
