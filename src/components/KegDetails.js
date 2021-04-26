@@ -18,6 +18,7 @@ export default function KegDetails({
     <>
       <h1><u>Keg Details</u></h1>
       <h3>{keg.name} by {keg.brand}</h3>
+      <h3>Flavor: {keg.flavor}</h3>
       <h3>${Number(keg.price).toFixed(2)} per pint</h3>
       <h3>Pints left in keg: {keg.quantity}</h3>
       <Button variant="success" onClick={() => onClickingDecrement(keg.id)}>Drink one</Button>{' '}
