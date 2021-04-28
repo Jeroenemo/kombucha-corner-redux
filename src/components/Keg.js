@@ -4,13 +4,11 @@ import PropTypes from "prop-types";
 
 export default function Keg({
   name,
-  brand,
-  price,
-  flavor,
   quantity,
   id,
   whenKegClicked
 }){
+  
   return (
     <>
       <div style={{display: "flex"}}onClick = { () => whenKegClicked(id) }>
@@ -24,7 +22,7 @@ export default function Keg({
 Keg.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   flavor: PropTypes.string,
   quantity: PropTypes.number,
   id: PropTypes.string,

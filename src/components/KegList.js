@@ -1,5 +1,5 @@
 import React from "react";
-import { Accordion, Card, ProgressBar, Button } from "react-bootstrap";
+import { Accordion, Card, Button } from "react-bootstrap";
 import Keg from "./Keg";
 import KegDetails from "./KegDetails"
 import PropTypes from "prop-types";

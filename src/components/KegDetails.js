@@ -36,5 +36,6 @@ export default function KegDetails({
 KegDetails.propTypes = {
   keg: PropTypes.object,
   onClickingDelete: PropTypes.func,
-  onClickingEdit: PropTypes.func
+  onClickingEdit: PropTypes.func,
+  onClickingDecrement: PropTypes.func
 };
