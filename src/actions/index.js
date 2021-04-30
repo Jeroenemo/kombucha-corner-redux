@@ -18,6 +18,10 @@ export const deleteKeg = (id) => ({
   id
 });
 
-export const toggleForm =() => ({
+export const toggleForm = () => ({
   type: c.TOGGLE_FORM
+});
+
+export const toggleEdit = () => ({
+  type: c.TOGGLE_EDIT
 });

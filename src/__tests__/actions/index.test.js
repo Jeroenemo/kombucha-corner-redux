@@ -34,4 +34,10 @@ describe('kombucha corner actions', () => {
       type: c.TOGGLE_FORM
     });
   });
+
+  it('toggleEdit should create a TOGGLE_EDIT action', () => {
+    expect(a.toggleEdit()).toEqual({
+      type: c.TOGGLE_EDIT
+    })
+  });
 });
