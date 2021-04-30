@@ -9,7 +9,11 @@ export const addKeg = (keg) => {
     price: price,
     quantity: quantity,
     flavor: flavor,
-    
     id: id
   }
-}
+};
+
+export const deleteKeg = (id) => ({
+  type: c.DELETE_KEG,
+  id
+});
