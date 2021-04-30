@@ -36,4 +36,18 @@ describe('rootReducer', () => {
     store.dispatch(action);
     expect(store.getState().kegList).toEqual(kegListReducer(undefined, action));
   });
+
+  test('Check that DELETE_KEG action works for kegListReducer and root reducer', () => {
+    const action = {
+      type: c.DELETE_KEG,
+      name: "Yum",
+      brand: "Booch",
+      price: 5.00,
+      flavor: "Tasty",
+      quantity: 124,
+      id: 1
+    }
+    store.dispatch(action);
+    expect(store.getState().kegList).toEqual(kegListReducer(undefined, action));
+  });
 });
