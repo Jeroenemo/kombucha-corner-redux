@@ -4,32 +4,38 @@ import Keg from "./Keg";
 import KegDetails from "./KegDetails"
 import PropTypes from "prop-types";
 
-export default function KegList(props){
+export default function KegList({
+  kegList,
+  onKegSelection,
+  handleDecrementingKeg,
+  handleDeletingKeg,
+  handleEditingKeg
+}){
 
   return (
     <>
-      { props.kegList.map((keg) =>
-        <Accordion key = { keg.id }>
+      {kegList.map((keg) =>
+        <Accordion key = {keg.id}>
           <Card>
             <Card.Header>
               <Accordion.Toggle as={Button} variant="text" eventKey="0">
                 <Keg
-                  whenKegClicked = { props.onKegSelection }
-                  name = { keg.name }
-                  brand = { keg.brand }
-                  price = { keg.price }
-                  flavor = { keg.flavor }
-                  quantity = { keg.quantity }
-                  id = { keg.id } />
+                  whenKegClicked={onKegSelection}
+                  name={keg.name}
+                  brand={keg.brand}
+                  price={keg.price}
+                  flavor={keg.flavor}
+                  quantity={keg.quantity}
+                  id={keg.id} />
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
                 <KegDetails
                   keg={keg}
-                  onClickingDelete={props.handleDeletingKeg}
-                  onClickingEdit={props.handleEditingKeg}
-                  onClickingDecrement={props.handleDecrementingKeg} />  
+                  onClickingDelete={handleDeletingKeg}
+                  onClickingEdit={handleEditingKeg}
+                  onClickingDecrement={handleDecrementingKeg} />  
               </Card.Body>
             </Accordion.Collapse>
           </Card>
@@ -41,5 +47,8 @@ export default function KegList(props){
 
 KegList.propTypes = {
   kegList: PropTypes.array,
-  onKegSelection: PropTypes.func
+  onKegSelection: PropTypes.func,
+  handleDeletingKeg: PropTypes.func,
+  handleEditingKeg: PropTypes.func,
+  handleDecrementingKeg: PropTypes.func
 };

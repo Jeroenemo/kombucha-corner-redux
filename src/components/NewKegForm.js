@@ -3,11 +3,13 @@ import { v4 } from 'uuid';
 import FormTemplate from "./FormTemplate";
 import PropTypes from "prop-types";
 
-export default function NewKegForm(props) {
+export default function NewKegForm({
+  onNewKegCreation
+}) {
 
   function handleNewKegFormSubmission(event) {
     event.preventDefault();
-    props.onNewKegCreation({ 
+    onNewKegCreation({ 
       name: event.target.name.value,
       brand: event.target.brand.value,
       price: event.target.price.value,
