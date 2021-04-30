@@ -40,4 +40,11 @@ describe('kombucha corner actions', () => {
       type: c.TOGGLE_EDIT
     })
   });
+
+  it('selectKeg should create a SELECT_KEG action', () => {
+    expect(a.selectKeg(1)).toEqual({
+      type: c.SELECT_KEG,
+      id: 1
+    })
+  })
 });
