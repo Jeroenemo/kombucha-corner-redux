@@ -17,4 +17,26 @@ describe('kegListReducer', () => {
       expect(kegListReducer({}, {type: null})).toEqual({});
     });
 
-})
+    test('Should successfuly add a keg to the keg list', () => {
+      const {name, brand, price, flavor, quantity, id} = kegData;
+      action = {
+        type: c.ADD_KEG,
+        name: name,
+        brand: brand,
+        price: price,
+        flavor: flavor,
+        quantity: quantity,
+        id: id
+      };
+      expect(kegListReducer({}, action)).toEqual({
+        [id]: {
+          name: name,
+          brand: brand,
+          price: price,
+          flavor: flavor,
+          quantity: quantity,
+          id: id
+        }
+      });
+    });
+});
