@@ -21,8 +21,11 @@ export default class KegControl extends Component {
     if (this.state.selectedKeg != null) {
       this.setState({
         selectedKeg: null,
-        editing: false
       });
+    } else if  (this.props.edit) {
+      const {dispatch} = this.props;
+      const action = a.toggleEdit();
+      dispatch(action)
     } else {
       const {dispatch} = this.props;
       const action = a.toggleForm();
