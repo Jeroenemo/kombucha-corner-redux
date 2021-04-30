@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Row, Col } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 export default function KegOverview({
   kegList
@@ -82,3 +83,7 @@ export default function KegOverview({
     </>
   );
 }
+
+KegOverview.propTypes = {
+  kegList: PropTypes.array,
+};
