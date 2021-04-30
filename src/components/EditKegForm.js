@@ -2,12 +2,14 @@ import React from "react";
 import FormTemplate from "./FormTemplate";
 import PropTypes from "prop-types";
 
-export default function EditKegForm (props) {
-  const { keg } = props;
+export default function EditKegForm ({
+  keg,
+  onEditKeg
+}) {
 
   function handleEditKegFormSubmission(event) {
     event.preventDefault();
-    props.onEditKeg({
+    onEditKeg({
       name: event.target.name.value,
       brand: event.target.brand.value,
       price: event.target.price.value,
