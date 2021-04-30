@@ -6,22 +6,22 @@ export default function KegOverview({
   kegList
 }) {
     
-    const activeKegs = kegList.reduce((counter, keg) => {
+    const activeKegs = Object.values(kegList).reduce((counter, keg) => {
       if (keg.quantity > 0) counter ++
       return counter;
     }, 0);
     
-    const overHalfKegs = kegList.reduce((counter, keg) => {
+    const overHalfKegs = Object.values(kegList).reduce((counter, keg) => {
       if (keg.quantity >= 62) counter ++
       return counter;
     }, 0);
 
-    const underHalfKegs = kegList.reduce((counter, keg) => {
+    const underHalfKegs = Object.values(kegList).reduce((counter, keg) => {
       if (keg.quantity < 62 && keg.quantity) counter ++
       return counter;
     }, 0);
 
-    const emptyKegs = kegList.reduce((counter, keg) => {
+    const emptyKegs = Object.values(kegList).reduce((counter, keg) => {
       if (keg.quantity === 0) counter ++
       return counter;
     }, 0);
@@ -85,5 +85,5 @@ export default function KegOverview({
 }
 
 KegOverview.propTypes = {
-  kegList: PropTypes.array,
+  kegList: PropTypes.object,
 };

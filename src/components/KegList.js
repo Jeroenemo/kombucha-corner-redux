@@ -14,7 +14,7 @@ export default function KegList({
 
   return (
     <>
-      {kegList.map((keg) =>
+      {Object.values(kegList).map((keg) =>
         <Accordion key = {keg.id}>
           <Card>
             <Card.Header>
@@ -46,7 +46,7 @@ export default function KegList({
 }
 
 KegList.propTypes = {
-  kegList: PropTypes.array,
+  kegList: PropTypes.object,
   onKegSelection: PropTypes.func,
   handleDeletingKeg: PropTypes.func,
   handleEditingKeg: PropTypes.func,
