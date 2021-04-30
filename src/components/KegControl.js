@@ -13,8 +13,7 @@ export default class KegControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedKeg: null,
-      editing: false,
+      selectedKeg: null
     };
   }
 
@@ -60,17 +59,18 @@ export default class KegControl extends Component {
   }
 
   handleEditingKeg = () => {
-    this.setState({
-      editing: true
-    });
+    const {dispatch} = this.props;
+    const action = a.toggleEdit();
+    dispatch(action);
   }
 
   handleEditingKegInList = (editKeg) => {
     const {dispatch} = this.props;
     const action = a.addKeg(editKeg);
-    dispatch(action)
+    dispatch(action);
+    const action2 = a.toggleEdit();
+    dispatch(action2);
     this.setState({
-      editing: false,
       selectedKeg: null
     });
   }
@@ -79,7 +79,7 @@ export default class KegControl extends Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.editing) {
+    if (this.props.edit) {
         currentlyVisibleState = <EditKegForm
           keg={this.state.selectedKeg}
           onEditKeg={this.handleEditingKegInList} />
@@ -116,13 +116,15 @@ export default class KegControl extends Component {
 
 KegControl.propTypes = {
   kegList: PropTypes.object,
-  formVisibleOnPage: PropTypes.bool
+  formVisibleOnPage: PropTypes.bool,
+  edit: PropTypes.bool
 };
 
 const mapStatetoProps = (state) => {
   return {
     kegList: state.kegList,
-  formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    edit: state.edit
   }
 }
 
