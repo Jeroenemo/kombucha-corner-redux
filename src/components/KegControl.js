@@ -5,7 +5,7 @@ import KegList from "./KegList";
 import KegOverview from "./KegOverview";
 import NewKegForm from "./NewKegForm";
 
-export default class TicketControl extends Component {
+export default class KegControl extends Component {
 
   constructor(props) {
     super(props);
