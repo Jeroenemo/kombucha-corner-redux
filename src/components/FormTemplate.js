@@ -2,10 +2,13 @@ import React from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
-export default function FormTemplate(props) {
+export default function FormTemplate({
+  formSubmissionHandler,
+  buttonText
+}) {
   return (
     <>
-      <Form onSubmit = {props.formSubmissionHandler}>
+      <Form onSubmit = {formSubmissionHandler}>
         <Form.Group as={Row} controlId="name">
           <Form.Label column sm={2}>
             Name
@@ -38,7 +41,7 @@ export default function FormTemplate(props) {
             <Form.Control type="text" placeholder="Flavor" required />
           </Col>
         </Form.Group>
-        <Button type='submit'>{props.buttonText}</Button>
+        <Button type='submit'>{buttonText}</Button>
       </Form>
     </>
   );
