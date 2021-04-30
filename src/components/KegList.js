@@ -9,7 +9,7 @@ export default function KegList(props){
   return (
     <>
       { props.kegList.map((keg) =>
-        <Accordion>
+        <Accordion key = { keg.id }>
           <Card>
             <Card.Header>
               <Accordion.Toggle as={Button} variant="text" eventKey="0">
@@ -20,8 +20,7 @@ export default function KegList(props){
                   price = { keg.price }
                   flavor = { keg.flavor }
                   quantity = { keg.quantity }
-                  id = { keg.id }
-                  key = { keg.id } />
+                  id = { keg.id } />
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
