@@ -26,7 +26,11 @@ export const toggleEdit = () => ({
   type: c.TOGGLE_EDIT
 });
 
-export const selectKeg = (id) => ({
+export const selectKeg = (keg) => ({
   type: c.SELECT_KEG,
-  id
+  keg
 });
+
+export const nullKeg = () => ({
+  type: c.NULL_KEG
+})
