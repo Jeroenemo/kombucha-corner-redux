@@ -18,6 +18,7 @@ describe('rootReducer', () => {
     quantity: 124,
     id: 1}
   };
+
   test('Should return default state if no action type is recognized', () => {
     expect(rootReducer({}, {type: null})).toEqual({
       kegList: {},
@@ -78,10 +79,19 @@ describe('rootReducer', () => {
     store.dispatch(action);
     expect(store.getState().edit).toEqual(editFormReducer(undefined, action));
   });
+
   test('Check that SELECT_KEG action works for selectedKegReducer and root reducer', () => {
     const action = {
       type: c.SELECT_KEG,
       keg: keg
+    }
+    store.dispatch(action);
+    expect(store.getState().selectedKeg).toEqual(selectedKegReducer(undefined, action));
+  });
+
+  test('Check that NULL_KEG action works for selectedKegReducer and root reducer', () => {
+    const action = {
+      type: c.NULL_KEG,
     }
     store.dispatch(action);
     expect(store.getState().selectedKeg).toEqual(selectedKegReducer(undefined, action));
