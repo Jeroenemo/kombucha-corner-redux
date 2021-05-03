@@ -2,7 +2,14 @@ import * as a from '../../actions';
 import * as c from './../../actions/ActionTypes';
 
 describe('kombucha corner actions', () => {
-
+  const keg = {
+    name: "Yum",
+    brand: "Booch",
+    price: 5.00,
+    flavor: "Tasty",
+    quantity: 124,
+    id: 1
+  };
   it('addKeg should create ADD_KEG action', () => {
     expect(a.addKeg({
       name: "Yum",
@@ -42,9 +49,9 @@ describe('kombucha corner actions', () => {
   });
 
   it('selectKeg should create a SELECT_KEG action', () => {
-    expect(a.selectKeg(1)).toEqual({
+    expect(a.selectKeg(keg)).toEqual({
       type: c.SELECT_KEG,
-      id: 1
+      keg: keg
     })
   })
 });
