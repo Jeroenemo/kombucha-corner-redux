@@ -45,13 +45,18 @@ describe('kombucha corner actions', () => {
   it('toggleEdit should create a TOGGLE_EDIT action', () => {
     expect(a.toggleEdit()).toEqual({
       type: c.TOGGLE_EDIT
-    })
+    });
   });
 
   it('selectKeg should create a SELECT_KEG action', () => {
     expect(a.selectKeg(keg)).toEqual({
       type: c.SELECT_KEG,
       keg: keg
-    })
-  })
+    });
+  });
+  it('nullKeg should create a NULL_KEG action', () => {
+    expect(a.nullKeg()).toEqual({
+      type: c.NULL_KEG
+    });
+  });
 });
