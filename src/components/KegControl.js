@@ -23,7 +23,7 @@ export default class KegControl extends Component {
       dispatch(action);
     }
   }
-//write seperate handle
+
   handleAddingNewKegToList = (newKeg) => {
     const {dispatch} = this.props;
     const action = a.addKeg(newKeg);
@@ -107,7 +107,6 @@ export default class KegControl extends Component {
             { currentlyVisibleState }
             <br />
             <Button variant="primary" onClick={this.handleClick}>{buttonText}</Button>
-            {console.log(this.props.selectedKeg)}
           </Jumbotron>
         </Container>
       </>
