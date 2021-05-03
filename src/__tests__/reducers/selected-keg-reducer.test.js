@@ -30,6 +30,11 @@ describe('selectedTicketReducer', () => {
       quantity: 124,
       id: 1}
     });
-
+  })
+  test('Should successfully set selected keg to null', () => {
+    action = {
+      type: c.NULL_KEG
+    }
+    expect(selectedKegReducer(null, action)).toEqual(null)
   })
 });
