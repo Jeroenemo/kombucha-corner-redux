@@ -3,12 +3,21 @@ import { createStore } from 'redux';
 import formVisibleReducer from './../../reducers/form-visible-reducer';
 import kegListReducer from './../../reducers/keg-list-reducer';
 import editFormReducer from './../../reducers/edit-form-reducer';
+import selectedKegReducer from './../../reducers/selected-keg-reducer';
 import * as c from './../../actions/ActionTypes';
 
 let store = createStore(rootReducer);
 
 describe('rootReducer', () => {
-
+  
+  const keg = {
+    1: {name: "Yum",
+    brand: "Booch",
+    price: 5.00,
+    flavor: "Tasty",
+    quantity: 124,
+    id: 1}
+  };
   test('Should return default state if no action type is recognized', () => {
     expect(rootReducer({}, {type: null})).toEqual({
       kegList: {},
@@ -68,5 +77,13 @@ describe('rootReducer', () => {
     }
     store.dispatch(action);
     expect(store.getState().edit).toEqual(editFormReducer(undefined, action));
+  });
+  test('Check that SELECT_KEG action works for selectedKegReducer and root reducer', () => {
+    const action = {
+      type: c.SELECT_KEG,
+      keg: keg
+    }
+    store.dispatch(action);
+    expect(store.getState().selectedKeg).toEqual(selectedKegReducer(undefined, action));
   });
 });
