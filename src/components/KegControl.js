@@ -117,7 +117,8 @@ export default class KegControl extends Component {
 KegControl.propTypes = {
   kegList: PropTypes.object,
   formVisibleOnPage: PropTypes.bool,
-  edit: PropTypes.bool
+  edit: PropTypes.bool,
+  selectKeg: PropTypes.object
 };
 
 const mapStatetoProps = (state) => {
